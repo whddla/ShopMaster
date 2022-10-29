@@ -1,0 +1,20 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        hi
+    </div>
+    <input class="channel-talk-button" onclick="showPopup();" value="챗봇"/>
+</body>
+<script type="text/javascript">
+    function showPopup() { window.open("/test", "a", "width=600, height=800, left=1500, top=200"); }
+</script>
+</html>

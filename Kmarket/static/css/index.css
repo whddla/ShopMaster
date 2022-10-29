@@ -1,0 +1,18 @@
+.channel-talk-button {
+    cursor: pointer;
+    position: fixed;
+    border-style: none;
+    width: 60px;
+    height: 60px;
+    bottom: 71px;
+    right: 28px;
+    font-size: 23px;
+    text-align: center;
+    background-color: antiquewhite;
+    /* background: url("https://cdn-icons-png.flaticon.com/512/3010/3010825.png") 50%; */
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 1000;
+    box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%);
+    border-radius: 50%;
+}
