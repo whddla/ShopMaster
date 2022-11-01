@@ -8,8 +8,8 @@
     right: 28px;
     font-size: 23px;
     text-align: center;
-    background-color: antiquewhite;
-    /* background: url("https://cdn-icons-png.flaticon.com/512/3010/3010825.png") 50%; */
+    background-color: aqua;
+    background: url("https://openclipart.org/image/800px/262355") 30%;
     background-repeat: no-repeat;
     background-size: contain;
     z-index: 1000;
