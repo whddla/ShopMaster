@@ -9,12 +9,91 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        hi
+    <div style="display: block;">
+        <header>
+            <div class="headArea">
+                <a href="#" id="topTotalMenu" class="menu"></a>
+                <div class="headLogo">
+                    <a href="#">
+                        <img src="static/img/logo.PNG" alt="">
+                    </a>
+                </div>
+                <div class="globalMenu">
+                    <a href="#">상품</a>
+                    <a href="#">카드</a>
+                    <a href="#">서비스</a>
+                </div>
+                <div class="rightMenu">
+                    <a href="#" class="login">로그인</a>
+                    <a href="#" class="signup">회원가입</a>
+                </div>
+            </div>
+        </header>
     </div>
+    <section class="container">
+        <div class="arrow prev">&lt;</div>
+        <div class="banner">
+            <div class="img"><img src="https://img1.kbcard.com/home_re/pc/img/main/pc-checkcard-bg.png"></div>
+            <div class="img"><img src="https://img1.kbcard.com/home_re/pc/img/main/pc-LiivNext-bg.png"></div>
+            <div class="img"><img src="https://img1.kbcard.com/home_re/pc/img/main/pc-checkcard-bg.png"></div>
+            <div class="img"><img src="https://img1.kbcard.com/home_re/pc/img/main/pc-LiivNext-bg.png"></div>
+            <div class="img"><img src="https://img1.kbcard.com/home_re/pc/img/main/pc-checkcard-bg.png"></div>
+            <div class="img"><img src="https://img1.kbcard.com/home_re/pc/img/main/pc-LiivNext-bg.png"></div>
+        </div>
+        <div class="arrow next">&gt;</div>
+        <div class="btns">
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">3</button>
+            <button class="btn">4</button>
+            <button class="btn">5</button>
+            <button class="btn">6</button>
+        </div>
+    </section>
     <input class="channel-talk-button" onclick="showPopup();" readonly/>
 </body> 
 <script type="text/javascript">
     function showPopup() { window.open("/test", "a", "width=600, height=800, left=1500, top=100"); }
+</script>
+<script>
+    const banner = document.querySelector("div.banner");
+    const arrows = document.querySelectorAll("div.arrow");
+    const btns = document.querySelectorAll("button.btn");
+    let count = 0;
+
+    // 원하는 번호의 배너로 이동
+    btns.forEach(function(btn, i, ar){
+        // 각 버튼에 배너로 이동
+        ar[i].addEventListener("click", function(){
+            // 해당 버튼 번호(i)로 count 변경
+            count = i;
+            banner.style.transform = "translate(-" + count * 90 + "vw)";
+        })
+    })
+
+    // 이전버튼, 다음버튼 기능 구현
+    arrows.forEach(arrow => {
+        arrow.addEventListener("click", function(){
+            let arrowType = arrow.classList[1];
+            if(arrowType == 'prev'){
+                count--;
+                if(count == -1) {
+                    count = 5;
+                }
+            }else{
+                count++;
+                if(count == 6) {
+                    count = 0;
+                }
+            }
+            banner.style.transform = "translate(-" + count * 90 + "vw)";
+        });
+    });
+
+    setInterval(function(){
+        count++;
+        count = count == 6 ? 0 : count;
+        banner.style.transform = "translate(-" + count * 90 + "vw)";
+    }, 2000);
 </script>
 </html>
