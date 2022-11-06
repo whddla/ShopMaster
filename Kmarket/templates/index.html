@@ -1,33 +1,7 @@
+{% extends 'layout/layout.html' %}
 {%load static%}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <div class="headArea">
-            <a href="#" id="topTotalMenu" class="menu"></a>
-            <div class="headLogo">
-                <a href="#">
-                    <img src="static/img/logo.PNG" alt="">
-                </a>
-            </div>
-            <div class="globalMenu">
-                <a href="#">상품</a>
-                <a href="#">카드</a>
-                <a href="#">서비스</a>
-            </div>
-            <div class="rightMenu">
-                <a href="#" class="login">로그인</a>
-                <a href="#" class="signup">회원가입</a>
-            </div>
-        </div>
-    </header>
+{%block content%}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
     <section class="container">
         <div class="arrow prev">&lt;</div>
         <div class="banner">
@@ -83,57 +57,5 @@
             </div>
         </div>
     </section>
-    <div id="footer" class="footer">  
-        <div class="inner">
-            <span>코리아 IT 아카데미</span>
-            <span>팀 이름: SOTA (state of the art)</span>
-            <span>프로젝트 명: SOTB (state of the bank)</span>
-        </div>
-    </div>
-    <input class="channel-talk-button" onclick="showPopup();" readonly/>
-</body> 
-<script type="text/javascript">
-    function showPopup() { window.open("/test", "a", "width=600, height=800, left=1500, top=100"); }
-</script>
-<script>
-    const banner = document.querySelector("div.banner");
-    const arrows = document.querySelectorAll("div.arrow");
-    const btns = document.querySelectorAll("button.btn");
-    let count = 0;
-
-    // 원하는 번호의 배너로 이동
-    btns.forEach(function(btn, i, ar){
-        // 각 버튼에 배너로 이동
-        ar[i].addEventListener("click", function(){
-            // 해당 버튼 번호(i)로 count 변경
-            count = i;
-            banner.style.transform = "translate(-" + count * 90 + "vw)";
-        })
-    })
-
-    // 이전버튼, 다음버튼 기능 구현
-    arrows.forEach(arrow => {
-        arrow.addEventListener("click", function(){
-            let arrowType = arrow.classList[1];
-            if(arrowType == 'prev'){
-                count--;
-                if(count == -1) {
-                    count = 5;
-                }
-            }else{
-                count++;
-                if(count == 6) {
-                    count = 0;
-                }
-            }
-            banner.style.transform = "translate(-" + count * 90 + "vw)";
-        });
-    });
-
-    setInterval(function(){
-        count++;
-        count = count == 6 ? 0 : count;
-        banner.style.transform = "translate(-" + count * 90 + "vw)";
-    }, 2000);
-</script>
-</html>
+<script src="{%static 'js/index.js'%}" type="text/javascript"></script>
+{%endblock%}
